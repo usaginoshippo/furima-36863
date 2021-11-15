@@ -26,7 +26,7 @@ has_many :buys
 | ship_area_id         | integer    | null: false                    |
 | ship_day_id          | integer    | null: false                    |
 | price                | integer    | null: false                    |
-| user_id              | references | null: false, foreign_key: true |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 has_one :buy
@@ -37,8 +37,8 @@ belongs_to :user
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| user_id            | references | null: false, foreign_key: true |
-| item_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
 
 ### Association
 has_one :shipping
@@ -52,10 +52,10 @@ belongs_to :user
 | postal_code        | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | cities             | string     | null: false                    |
-| house_num          | string     |                                |
-| building           | string     | null: false                    |
-| tel_num            | integer    | null: false                    |
-| buy_id             | references | null: false, foreign_key: true |
+| house_num          | string     | null: false                    |
+| building           | string     |                                |
+| tel_num            | string     | null: false                    |
+| buy                | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :buy
