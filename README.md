@@ -1,14 +1,14 @@
 ## usersテーブル
-| Column             | Type   | Options                  |
-| ------------------ | ------ | ------------------------ |
-| nickname           | string | null: false              |
-| email              | string | null: false, default: "" |
-| encrypted_password | string | null: false, default: "" |
-| last_name          | string | null: false              |
-| first_name         | string | null: false              |
-| last_name_kana     | string | null: false              |
-| first_name_kana    | string | null: false              |
-| birthday           | date   | null: false              |
+| Column             | Type   | Options                                |
+| ------------------ | ------ | -------------------------------------- |
+| nickname           | string | null: false                            |
+| email              | string | null: false, default: "" , unique: true|
+| encrypted_password | string | null: false, default: ""               |
+| last_name          | string | null: false                            |
+| first_name         | string | null: false                            |
+| last_name_kana     | string | null: false                            |
+| first_name_kana    | string | null: false                            |
+| birthday           | date   | null: false                            |
 
 ### Association
 has_many :items
@@ -23,7 +23,7 @@ has_many :buys
 | category_id          | integer    | null: false                    |
 | product_condition_id | integer    | null: false                    |
 | ship_cost_id         | integer    | null: false                    |
-| ship_area_id         | integer    | null: false                    |
+| prefecture_id        | integer    | null: false                    |
 | ship_day_id          | integer    | null: false                    |
 | price                | integer    | null: false                    |
 | user                 | references | null: false, foreign_key: true |
@@ -51,7 +51,7 @@ belongs_to :user
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
-| cities             | string     | null: false                    |
+| city               | string     | null: false                    |
 | house_num          | string     | null: false                    |
 | building           | string     |                                |
 | tel_num            | string     | null: false                    |
