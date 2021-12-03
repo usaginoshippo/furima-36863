@@ -10,31 +10,3 @@ window.addEventListener('load', () => {
     
   })
 });
-
-
-
-
-
-
-
-// function price (){
-//   const itemPrice = document.getElementById("item-price");
-
-//   itemPrice.addEventListener("change",() => {
-//     const tax = (itemPrice * 0.1);
-//     const profit = (itemPrice - tax);
-
-//     const taxComma = total.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'});
-//     itemTax.innerHTML = taxCommma;
-//     const profitComma = total.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY'});
-//     itemProfit.innerHTML = profitCommma;
-
-//     const displayItemTax = itemTax.innerHTML;
-//     const displayItemProfit = itemProfit.innerHTML;
-
-//     document.getElementById("add-tax-price").value = displayItemTax;
-//     document.getElementById("profit").value = displayItemProfit;
-//   });
-// };
-
-// Window.addEventListener("load",price);
