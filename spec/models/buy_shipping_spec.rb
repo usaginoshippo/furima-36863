@@ -18,12 +18,11 @@ RSpec.describe BuyShipping, type: :model do
         expect(@buy_shipping).to be_valid
       end
     end
-    
+
     context '内容に問題がある場合' do
       it 'tokenが空だと保存できないこと' do
         @buy_shipping.token = ''
         @buy_shipping.valid?
-        binding.pry
         expect(@buy_shipping.errors.full_messages).to include("Token can't be blank")
       end
       it 'postal_codeが空だと保存できないこと' do
@@ -34,12 +33,12 @@ RSpec.describe BuyShipping, type: :model do
       it 'postal_codeが7桁でないと保存できないこと' do
         @buy_shipping.postal_code = '123-456'
         @buy_shipping.valid?
-        expect(@buy_shipping.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@buy_shipping.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'postal_codeがハイフンを含まないと保存できないこと' do
         @buy_shipping.postal_code = '1234567'
         @buy_shipping.valid?
-        expect(@buy_shipping.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@buy_shipping.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'prefectureを選択していないと保存できないこと' do
         @buy_shipping.prefecture_id = 1
@@ -64,17 +63,17 @@ RSpec.describe BuyShipping, type: :model do
       it 'tel_numが全角数字だと保存できないこと' do
         @buy_shipping.tel_num = '０１２３４５６７８９'
         @buy_shipping.valid?
-        expect(@buy_shipping.errors.full_messages).to include("Tel num is invalid")
+        expect(@buy_shipping.errors.full_messages).to include('Tel num is invalid')
       end
       it 'tel_numが10桁未満だと保存できないこと' do
         @buy_shipping.tel_num = '123456789'
         @buy_shipping.valid?
-        expect(@buy_shipping.errors.full_messages).to include("Tel num is invalid")
+        expect(@buy_shipping.errors.full_messages).to include('Tel num is invalid')
       end
       it 'tel_numが12桁以上だと保存できないこと' do
         @buy_shipping.tel_num = '012345678909'
         @buy_shipping.valid?
-        expect(@buy_shipping.errors.full_messages).to include("Tel num is invalid")
+        expect(@buy_shipping.errors.full_messages).to include('Tel num is invalid')
       end
       it 'userが紐づいていないと保存できないこと' do
         @buy_shipping.user_id = nil
@@ -85,9 +84,7 @@ RSpec.describe BuyShipping, type: :model do
         @buy_shipping.item_id = nil
         @buy_shipping.valid?
         expect(@buy_shipping.errors.full_messages).to include("Item can't be blank")
-     end
-
+      end
     end
   end
 end
-
