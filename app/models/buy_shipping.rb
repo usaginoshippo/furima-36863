@@ -1,6 +1,6 @@
 class BuyShipping
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :postal_code, :prefecture_id, :city, :house_num, :building, :tel_num, :buy_id
+  attr_accessor :item_id, :user_id, :postal_code, :prefecture_id, :city, :house_num, :building, :tel_num, :buy_id, :token
 
   with_options presence: true do
     validates :postal_code  , format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
@@ -10,6 +10,8 @@ class BuyShipping
     validates :tel_num      , format: {with: /\A\d{10}\z|\A\d{11}\z/}
     validates :user_id 
     validates :item_id 
+    validates :token
+
   end
 
   def save

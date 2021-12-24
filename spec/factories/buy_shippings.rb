@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :buy_shipping do
+    token {"tok_abcdefghijk00000000000000000"}
     postal_code   { '012-3456'}
     prefecture_id { Faker::Number.between(from: 2, to: 48) }
     city          { '千代田区永田町'}

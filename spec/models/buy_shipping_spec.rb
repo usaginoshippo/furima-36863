@@ -20,6 +20,12 @@ RSpec.describe BuyShipping, type: :model do
     end
     
     context '内容に問題がある場合' do
+      it 'tokenが空だと保存できないこと' do
+        @buy_shipping.token = ''
+        @buy_shipping.valid?
+        binding.pry
+        expect(@buy_shipping.errors.full_messages).to include("Token can't be blank")
+      end
       it 'postal_codeが空だと保存できないこと' do
         @buy_shipping.postal_code = ''
         @buy_shipping.valid?
